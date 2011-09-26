@@ -7,6 +7,9 @@ export ZLOC_LANGUAGES="de_DE fr_FR pt_BR it_IT es_ES"
 
 export HISTCONTROL=ignoredups:erasedups
 
+#autocomplete for ssh from bash history 
+complete -W "$(echo $(grep '^ssh ' .bash_history | sort -u | sed 's/^ssh //'))" ssh
+
 function scd () {
         cd `pwd | sed $@`
 }
