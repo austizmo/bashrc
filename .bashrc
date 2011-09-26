@@ -11,6 +11,16 @@ function scd () {
         cd `pwd | sed $@`
 }
 
+function settitle () {
+	echo -n -e "\033]0;$@\007"
+}
+
+function cd () {
+	command cd "$@"
+	directory=`pwd -P`
+	settitle "`basename $directory`"
+}
+
 alias la="ls -lah"
 alias cim="vim"
 
