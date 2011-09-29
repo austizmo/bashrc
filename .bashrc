@@ -24,6 +24,11 @@ function cd () {
 	settitle "`basename $directory`"
 }
 
+function gitpu () {
+	git commit -a -m "$@"
+	git push
+}
+
 alias la="ls -lah"
 alias cim="vim"
 
